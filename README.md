@@ -17,17 +17,29 @@
 npm install
 ```
 
+
 ## Uso
 
 1. Coloca tus archivos Markdown en `src/components/markdowns/`.
-2. Importe los archivos en tu componente:
+2. Usa la colección de contenido para obtener todos los archivos y renderizarlos:
 
 ```tsx
-import markdown from "./components/markdowns/ejemplo.md?raw";
-<MarkdownRenderer markdown={markdown} />
+import { useContentCollection } from "./content/collection";
+import MarkdownRenderer from "./components/MarkdownRenderer";
+
+export default function App() {
+  const arrayCollection = useContentCollection();
+  return (
+    <div>
+      {arrayCollection.map((item, index) => (
+        <MarkdownRenderer key={index} markdown={item.body} />
+      ))}
+    </div>
+  );
+}
 ```
 
-3. El frontmatter YAML se mostrará como título y metadatos.
+3. Puedes mostrar una lista de entradas con título, autor y fecha usando el componente `ContentList`.
 
 ## Ejemplo de Markdown soportado
 
