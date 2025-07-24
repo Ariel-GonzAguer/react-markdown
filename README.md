@@ -1,69 +1,69 @@
-# React + TypeScript + Vite
+# React Markdown Renderer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Renderiza archivos Markdown con frontmatter YAML, soporte para tablas, enlaces, imágenes y estilos modernos usando React, Vite, TypeScript y Tailwind CSS.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Importa archivos `.md` como texto usando Vite (`?raw`).
+- Extrae y muestra metadatos (frontmatter) con `front-matter`.
+- Renderiza Markdown con [react-markdown](https://github.com/remarkjs/react-markdown) y [remark-gfm](https://github.com/remarkjs/remark-gfm) (tablas, listas de tareas, etc).
+- Estilos modernos y responsivos con Tailwind CSS y la clase `prose`.
+- Personalización de componentes Markdown (enlaces, imágenes, tablas, encabezados).
+- Seguro: no permite HTML embebido ni ejecución de scripts.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Uso
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Coloca tus archivos Markdown en `src/components/markdowns/`.
+2. Importe los archivos en tu componente:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```tsx
+import markdown from "./components/markdowns/ejemplo.md?raw";
+<MarkdownRenderer markdown={markdown} />
 ```
+
+3. El frontmatter YAML se mostrará como título y metadatos.
+
+## Ejemplo de Markdown soportado
+
+```markdown
+---
+title: "Mi artículo"
+autor: "Ariel"
+fecha: "2025-07-24"
+---
+
+# Bienvenidos
+
+Este Markdown incluye **negritas**, enlaces, tablas y más.
+
+| Nombre  | Edad |
+| ------- | ---- |
+| Sundae  | 9    |
+| Gandakl | 8    |
+
+[Visitar OpenAI](https://openai.com)
+
+![Imagen](/img/cervezas.jpg)
+```
+
+## Personalización de estilos
+
+Las tablas, imágenes y enlaces usan clases de Tailwind CSS para un diseño atractivo. Puedes modificar los estilos en `MarkdownRenderer.tsx` según tus necesidades.
+
+## Seguridad
+
+- No se renderiza HTML crudo (no se usa `rehype-raw`).
+- Los enlaces usan `rel="noopener noreferrer"` y `target="_blank"`.
+- El id de los títulos se sanitiza.
+
+## Créditos
+- [react-markdown](https://github.com/remarkjs/react-markdown)
+- [remark-gfm](https://github.com/remarkjs/remark-gfm)
+- [front-matter](https://github.com/jxson/front-matter)
+- [Tailwind CSS](https://tailwindcss.com/)
