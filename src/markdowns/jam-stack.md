@@ -1,5 +1,5 @@
 ---
-title: "JAM Stack"
+titulo: "JAM Stack"
 autor: "Ariel"
 fecha: "2025-07-24"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "React"
+titulo: "React"
 autor: "Ariel"
 fecha: "2025-07-24"
 ---

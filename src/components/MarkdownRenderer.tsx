@@ -42,7 +42,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 interface FrontmatterAttributes {
-  title?: string;
+  titulo?: string;
   autor?: string;
   fecha?: string;
   [key: string]: unknown;
@@ -67,7 +67,7 @@ export default function MarkdownRenderer({ markdown }: Props) {
   return (
     <article className="prose lg:prose-xl mx-auto p-4">
       <header className="mb-6 text-center text-red-600">
-        {data.title && <h2 id={safeId}>{data.title}</h2>}
+        {data.titulo && <h2 id={safeId}>{data.titulo}</h2>}
         {(data.autor || data.fecha) && (
           <p className="text-sm text-gray-500 italic">
             {data.autor && <>Por {data.autor}</>}

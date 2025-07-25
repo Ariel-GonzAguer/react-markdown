@@ -1,5 +1,5 @@
 ---
-title: "Tailwind CSS"
+titulo: "Tailwind CSS"
 autor: "Ariel"
 fecha: "2025-07-24"
 ---

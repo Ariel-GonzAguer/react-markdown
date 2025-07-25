@@ -1,5 +1,5 @@
 ---
-title: "Vercel"
+titulo: "Vercel"
 autor: "Ariel"
 fecha: "2025-07-24"
 ---

@@ -11,7 +11,7 @@ export default function ContentList() {
       <ul className="space-y-4">
         {posts.map((post) => (
           <li key={post.path} className="border rounded p-4 bg-white shadow">
-            <h3 className="text-xl font-semibold mb-1">{post.attributes.title || 'Sin título'}</h3>
+            <h3 className="text-xl font-semibold mb-1">{post.attributes.titulo || 'Sin título'}</h3>
             <p className="text-sm text-gray-500 mb-2">
               {post.attributes.autor && <>Por {post.attributes.autor}</>}
               {post.attributes.autor && post.attributes.fecha && ' — '}
@@ -19,7 +19,7 @@ export default function ContentList() {
             </p>
             <pre className="text-xs text-gray-400 break-all">{post.path.replace(/^.*markdowns\//, '')}</pre>
             <p className="mt-2 text-gray-700">{post.body.slice(0, 100)}...</p>
-            <a href={`#${post.attributes.title?.toLocaleLowerCase()}`}>Ir →</a>
+            <a href={`#${post.attributes.titulo?.toLocaleLowerCase()}`}>Ir →</a>
           </li>
         ))}
       </ul>

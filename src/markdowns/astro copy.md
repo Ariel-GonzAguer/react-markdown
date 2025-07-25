@@ -1,5 +1,5 @@
 ---
-title: "Astro2"
+titulo: "Astro2"
 autor: "Ariel"
 fecha: "2025-07-2424"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "TypeScript"
+titulo: "TypeScript"
 autor: "Ariel"
 fecha: "2025-07-24"
 ---

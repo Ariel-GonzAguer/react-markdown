@@ -1,5 +1,5 @@
 ---
-title: "Tabla GH"
+titulo: "Tabla GH"
 autor: "Ariel"
 fecha: "2025-07-24"
 ---

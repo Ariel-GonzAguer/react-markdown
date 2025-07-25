@@ -1,6 +1,5 @@
 // este archivo se usa como un hook para recuperar todos los archivos markdown de la carpeta `markdowns` y parsear su frontmatter y contenido.
 
-
 import { useEffect, useState } from "react";
 import fm from "front-matter";
 
@@ -8,7 +7,7 @@ export interface ContentItem {
   markdown: string;
   path: string;
   attributes: {
-    title?: string;
+    titulo?: string;
     autor?: string;
     fecha?: string;
     [key: string]: unknown;
@@ -16,8 +15,8 @@ export interface ContentItem {
   body: string;
 }
 
-// Importa todos los .md de la carpeta markdowns como texto crudo
-const modules = import.meta.glob("../components/markdowns/*.md", {
+// Importa todos los .md de la carpeta src/markdowns como texto crudo
+const modules = import.meta.glob("../markdowns/*.md", {
   query: "?raw",
   import: "default",
 });
